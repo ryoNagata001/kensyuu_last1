@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$thread_title = $_POST['thread_title'];
+$thread_title = htmlspecialchars($_POST['thread_title']);
 $string = str_replace(array(" ", "　"), "", $thread_title);
 $string = preg_replace('/\n|\r|\r\n/', '', $string);
 var_dump($string);
