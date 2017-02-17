@@ -4,7 +4,7 @@ if($_POST['token'] != session_id()){
     echo '正規のルートでアクセスしてください';
     exit;
 }
-$new_thread_name = $_POST['thread_name'];
+$new_thread_name = htmlspecialchars($_POST['thread_name']);
 $thread_id = $_POST['thread_id'];
 $string = str_replace(array(" ", "　"), "", $thread_name);
 $string = preg_replace('/\n|\r|\r\n/', '', $string);
